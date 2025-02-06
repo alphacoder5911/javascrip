@@ -1,0 +1,13 @@
+.container{
+    text-align: center;
+}
+.calc{
+    padding: 20px;
+    background-color: aliceblue;
+    border-radius:25px ;
+}
+
+#results{
+    text-align: center;
+    size: 30px;
+    font-size:x-large;}
