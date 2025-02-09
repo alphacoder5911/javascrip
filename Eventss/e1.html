@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+<body>
+    <button id="but">Click me </button>
+    <br>
+    <ul id="image">
+        <li><img id="ps1" src="ss.jpg" 
+        width="500px" alt=""></li>
+        <li><img id="ps2" src="ss.jpg" 
+            width="500px" alt=""></li>
+            <li><img id="ps3" src="ss.jpg" 
+                width="500px" alt=""></li>
+                <li><img id="ps4" src="ss.jpg" 
+                    width="500px" alt=""></li>
+        
+    </ul>
+</body>
+<script>
+    //In js mostly the code runs squentially only ,but events are an exception which executes only 
+    //after certain event has occured
+// For button in line 9 its not at all a recommended approach to add event listeners in html tag itself , it will give scalability or performance issues in long run
+//the first approach is 
+
+document.getElementById('but').onclick=function(){
+    //code
+}
+//This approach may be preferred over the first one but this one dont provide us with vast number of features
+//therefore the third method
+document.getElementById('but').addEventListener('click',function(e){
+    //code 
+
+    //This method provides us with lots of functionalities and features 
+    //this also takes in another arguement which is by default false , in some cases u may need to use it to set true.
+//e is called event object and is important to know about .
+/*It is kind of meta data for an event , it contains the time the event occured and other related informations like the type of event(click or hover)
+*/
+
+//time ,timestamped ,defaultPrevented(behaviour can be changed),target,toElement,sourceElement
+//clientx, clienty ,screenx,screeny
+//altkey,ctrlkey,keycode
+
+
+/* EVENT PROPOGATION_____>
+There are two context of event propogation 1]Event bubbling and 2] Event capturing , False (mostly) and True respectively.
+
+Suppose u have a ul and on click it will display a msg , and there are li inside it and one of which when clicked display different message
+, so all li come under ul so when clicked uls message will be displayed , but when clicked on specific li talked about , in false mode the message of li will 
+be printed then the uls message and when set to true vice-versa happens
+
+To stop bubbling i.e propogation from insidt to outside (false ) we use
+ e.stopPropogation();
+
+
+
+ e.preventDefault-> will prevent default behaviour of particular component or obj from happening.
+*/
+
+//uses
+
+
+});
+document.querySelector('#image').addEventListener('click',function(e){
+    console.log(e.target)
+    const removeit=e.target.parentNode
+    removeit.remove();
+
+    //removeit.parentNode.removeChild(removeit)
+})
+//AttachEvent => mostly was used in internet explorer
+</script>
+</html>
