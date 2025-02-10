@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Projects</title>
+</head>
+<body>
+    <h1 id="heading">Shreyas and Js</h1>
+    <button type="button" id="Start">Start</button>
+    <button type="button" id="stop">Stop</button>
+</body>
+<script>
+    let intervalie;
+   let c= function()
+    {
+        document.querySelector('#heading').innerText="Shreyyas AuR JS";
+        console.log("Changed")
+    }
+     document.querySelector('#Start').addEventListener('click',function(e){
+        e.preventDefault();
+          
+        intervalie=  setInterval(c, 3000,"HI");
+
+     });
+
+     // similar to clearTimeout we can use clear interval
+     document.querySelector('#stop').addEventListener('click',function(e){
+        e.preventDefault();
+     clearInterval(intervalie);
+     });
+
+</script>
+</html>

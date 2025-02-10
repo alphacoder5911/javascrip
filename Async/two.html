@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Projects</title>
+</head>
+<body>
+    <h1>Shreyas and Code</h1>
+    <button type="button" id="stop">Stop</button>
+</body>
+<script>
+    setTimeout(function(){
+        console.log("HELLO");
+    },2000);//this has two args one is handler that will take in a function to process something , and timmer ki kitne time ke baad woh perfrme karna hai
+//This will print only once \
+
+const changeme=setTimeout(function(){
+    document.querySelector('h1').innerHTML="Shreyas IS Handsome";
+},3000);
+
+document.querySelector('#stop').addEventListener('click',function(e){
+    e.preventDefault();
+    clearTimeout(changeme);
+    document.querySelector('h1').innerHTML="Shreyas and Code";
+    console.log('changed');
+})
+//There is another function called setInterval which will perform task ass after every time interval
+
+
+</script>
+</html>
